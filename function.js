@@ -3,80 +3,80 @@
 
 // APIKEY
 
-      var animals = ["Dog", "Cat", "Capybara", "Lion", "Hamster"];
+var animals = ["Dog", "Cat", "Capybara", "Lion", "Hamster"];
 
 // Function for dumping the JSON content for each button into the div
 function displayAnimalGifs() {
 
   // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
-    var animalName = $(this).attr('data-name');
+  var animalName = $(this).attr('data-name');
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalName + "&api_key=dc6zaTOxFJmzC&limit=10";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalName + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
 
   $.ajax({
-      url: queryURL,
-      method: "GET"
-  }).then(function(response) {
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
     var results = response.data;
 
-        console.log(response);
+    console.log(response);
 
 
-         for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < results.length; i++) {
 
-            var animalDiv = $("<div class='item'>");
+      var animalDiv = $("<div class='item'>");
 
-            var rating = results[i].rating;
-          
-            var p = $("<p>").text("Rating: " + rating);
+      var rating = results[i].rating;
 
-            var still = results[i].images.original_still;
+      var p = $("<p>").text("Rating: " + rating);
 
-            var f = $("<img>");
-            f.attr("src", results[i].images.original_still.url);
+      var still = results[i].images.original_still;
 
-            var animalImage = $("<img class='animalGif'>");
-            animalImage.attr("src", results[i].images.fixed_height_still.url);
-            animalImage.attr("data-animate", results[i].images.fixed_height.url);
-            animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-            animalImage.attr("data-state", "still")
-            animalImage.addClass("animalImage img-fluid");
-            
-             animalDiv.prepend(animalImage);
-             animalDiv.append(p); 
+      var f = $("<img>");
+      f.attr("src", results[i].images.original_still.url);
 
-             $("#gifs-appear-here").prepend(animalDiv);
-            }
+      var animalImage = $("<img class='animalGif'>");
+      animalImage.attr("src", results[i].images.fixed_height_still.url);
+      animalImage.attr("data-animate", results[i].images.fixed_height.url);
+      animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+      animalImage.attr("data-state", "still")
+      animalImage.addClass("animalImage img-fluid");
 
-// MAKE THE GIFS START STILL THEN ANIMATE
+      animalDiv.prepend(animalImage);
+      animalDiv.append(p);
 
-  }).then(function(response) {
-    $(".animalGif").on("click", function() {
-        console.log("workin")
-        
+      $("#gifs-appear-here").prepend(animalDiv);
+    }
 
-        var state = $(this).attr("data-state");
+    // MAKE THE GIFS START STILL THEN ANIMATE
+
+  }).then(function (response) {
+    $(".animalGif").on("click", function () {
+      console.log("workin")
 
 
-    if (state == "still") {
+      var state = $(this).attr("data-state");
+
+
+      if (state == "still") {
 
         $(this).attr("src", $(this).attr("data-animate"))
         $(this).attr("data-state", "animate")
 
-    }
+      }
 
 
-    else if (state == "animate") {
+      else if (state == "animate") {
         $(this).attr("src", $(this).attr("data-still"))
         $(this).attr("data-state", "still")
-    }
-
-       });
-
+      }
 
     });
+
+
+  });
 }
 
 
@@ -86,7 +86,7 @@ function renderButtons() {
   // Deleting the buttons prior to adding new movies
   // (this is necessary otherwise you will have repeat buttons)
   $("#buttonHolder").empty();
- 
+
 
   // Looping through the array of animals
   for (var i = 0; i < animals.length; i++) {
@@ -106,23 +106,23 @@ function renderButtons() {
 }
 
 // This function handles events where one button is clicked
-$("#add-animal").on("click", function(event) {
+$("#add-animal").on("click", function (event) {
   event.preventDefault();
 
   // This line grabs the input from the textbox
   var animalInput = $("#animal-input").val().trim();
 
   // The movie from the textbox is then added to our array
-    animals.push(animalInput);
+  animals.push(animalInput);
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
 
- 
+
 
 });
 
-  
+
 
 
 // Generic function for displaying the movieInfo
