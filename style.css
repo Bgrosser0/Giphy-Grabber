@@ -1,0 +1,20 @@
+#buttonHolder {
+    padding: 30px;
+    background: gray;
+    border: 2px solid black;
+}
+
+#gifHolder {
+    padding: 30px;
+    background: orchid;
+}
+
+#formHolder {
+    padding: 30px;
+    background: gold;
+}
+
+#container {
+    background-color: black;
+    width: 100%;
+}
