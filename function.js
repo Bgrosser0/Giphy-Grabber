@@ -1,77 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Grosser || Gif Grabber</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="function.js"></script>
-
-</head>
-
-<body>
-
-<!-- BUTTON CONTAINER -->
-
-<div id="container">
-
-    <div class="row">
-
-        <div = class="col-md-12">
-
-            <div class="card">
-                  
-                <div class="card-body" id="buttonHolder">
-            
-                </div>
-            
-            </div>
-
-        </div>    
-
-    </div>
-
-  
-
-<!-- MAIN BODY CONTAINER -->
-
-    <div class="row">
-
-        <!-- GIF CONTAINER -->
-
-        <div class="col-md-8" id="gifHolder">
-
-            <div id="gifs-appear-here">
-
-            </div>
-
-        </div>
-
-        <!-- TEXT INPUT CONTAINER -->
-
-        <div class="col-md-4" id="formHolder">
-
-            <form id="animal-form">
-                <label for="animal-input">Add an Animal!!!</label>
-                <input type="text" id="animal-input"><br>
-                <input id="add-animal" type="submit" value="Submit">
-            
-            </form>
-
-        </div>
-
-  </div>
-
-</div>
-
-<!-- JAVASCRIPT -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
 
 
 // APIKEY
@@ -206,7 +133,3 @@ $(document).on("click", ".animal", displayAnimalGifs);
 renderButtons();
 
 
-</script>
-
-</body>
-</html>
